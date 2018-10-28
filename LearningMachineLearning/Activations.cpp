@@ -3,20 +3,6 @@
 
 
 namespace Learning {
-	
-	/**********************************
-	/*** Constructors
-	/**********************************/
-	Activations::Activations()
-	{
-	}
-
-	/**********************************/
-
-	Activations::~Activations()
-	{
-	}
-
 
 	/**********************************
 	/*** Methods
@@ -38,6 +24,20 @@ namespace Learning {
 		xt::xarray<double> expZpos = xt::xarray<double>(z);
 		xt::xarray<double> expZneg = xt::xarray<double>(-z);
 		return (expZpos - expZneg) / (expZpos + expZneg);
+	}
+
+
+	/**********************************
+	/*** Constructors
+	/**********************************/
+	Activations::Activations()
+	{
+	}
+
+	/**********************************/
+
+	Activations::~Activations()
+	{
 	}
 
 	/**********************************/

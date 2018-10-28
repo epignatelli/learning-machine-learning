@@ -1,7 +1,5 @@
 #pragma once
-
-//#include "Model.h"
-#include "xtensor\xarray.hpp"
+#include <xtensor\xarray.hpp>
 
 namespace Learning {
 
@@ -19,24 +17,24 @@ namespace Learning {
 		/*** Methods
 		/**********************************/
 	public:
-		virtual void Initialise(std::vector<double> shape);
+		xt::xarray<double> Propagate(xt::xarray<double> X);
 
-		virtual void Propagate();
+		std::tuple<xt::xarray<double>, xt::xarray<double>> Backpropagate(xt::xarray<double> X, xt::xarray<double> yhat, xt::xarray<double> y);
 
-		virtual void Backpropagate();
+		void Update(xt::xarray<double> dw, xt::xarray<double> db, double alpha);
 
-		virtual void Update();
+		void Train(xt::xarray<double> X, xt::xarray<double> Y, double alpha, int iterations);
 
-		virtual void Train();
-
-		virtual void Predict();
+		//virtual void Predict();
 
 
 		/**********************************
 		/*** Constructors
 		/**********************************/
 	public:
-		LogisticRegressionModel();
+		LogisticRegressionModel(std::vector<double> shape);
+
+		LogisticRegressionModel(xt::xarray<double> w, xt::xarray<double> b);
 
 		~LogisticRegressionModel();
 	};
