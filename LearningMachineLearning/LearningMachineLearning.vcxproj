@@ -101,12 +101,13 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;LEARNINGMACHINELEARNING_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>E:\02. Research\01. GitHub\epignatelli\learning-machine-learning\packages\xtensor.0.15.10\build\native\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -158,32 +159,23 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Activations.cpp" />
-    <ClCompile Include="Losses.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="LearningMachineLearning.cpp" />
+    <ClCompile Include="Losses.cpp" />
     <ClCompile Include="LogisticRegressionModel.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\OpenBLAS.0.2.14.1\build\native\openblas.targets" Condition="Exists('..\packages\OpenBLAS.0.2.14.1\build\native\openblas.targets')" />
-    <Import Project="..\packages\armadillo-code.7.800.2\build\native\armadillo-code.targets" Condition="Exists('..\packages\armadillo-code.7.800.2\build\native\armadillo-code.targets')" />
     <Import Project="..\packages\xtensor.0.15.10\build\native\xtensor.targets" Condition="Exists('..\packages\xtensor.0.15.10\build\native\xtensor.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\OpenBLAS.0.2.14.1\build\native\openblas.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenBLAS.0.2.14.1\build\native\openblas.targets'))" />
-    <Error Condition="!Exists('..\packages\armadillo-code.7.800.2\build\native\armadillo-code.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\armadillo-code.7.800.2\build\native\armadillo-code.targets'))" />
     <Error Condition="!Exists('..\packages\xtensor.0.15.10\build\native\xtensor.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xtensor.0.15.10\build\native\xtensor.targets'))" />
   </Target>
 </Project>
