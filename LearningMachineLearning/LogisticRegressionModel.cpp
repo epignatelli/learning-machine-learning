@@ -46,7 +46,7 @@ namespace Learning {
 	/**********************************/
 
 	std::tuple<xt::xarray<double>, xt::xarray<double>> LogisticRegressionModel::Backpropagate(xt::xarray<double> X, xt::xarray<double> yhat, xt::xarray<double> y) {
-		int m = X.shape[1];
+		int m = X.shape()[1];
 
 		xt::xarray<double> dw = xt::linalg::dot(X, xt::transpose(yhat - y)) / m;
 		xt::xarray<double> db = xt::sum(yhat - y) / m;
@@ -64,7 +64,7 @@ namespace Learning {
 	/**********************************/
 
 	void LogisticRegressionModel::Train(xt::xarray<double> X, xt::xarray<double> y, double alpha=0.01, int iterations=100) {
-		int m = X.shape[1];
+		int m = X.shape()[1];
 		double* costs = new double[iterations];
 
 		for (int i = 0; i < iterations; i++) {
