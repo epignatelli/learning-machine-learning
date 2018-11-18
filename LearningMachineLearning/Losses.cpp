@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Losses.h"
-#include <xtensor-blas\xlinalg.hpp>
 
 namespace Learning {
 
